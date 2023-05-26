@@ -1,0 +1,31 @@
+﻿@page
+@model FarmCentral.Pages.Farmer.LoginModel
+@{
+    ViewData["Title"] = "Employee Login";
+}
+
+<h1>Login</h1>
+<h4>Farmer</h4>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Farmer.Name" class="control-label"></label>
+                <input asp-for="Farmer.Name" class="form-control" />
+                <span asp-validation-for="Farmer.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Farmer.Password" class="control-label"></label>
+                <input asp-for="Farmer.Password" class="form-control" />
+                <span asp-validation-for="Farmer.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-primary my-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="../Index">Back to Homepage</a>
+</div>

@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+        <h1 class="card-title">Welcome to Farm Central</h1>
+        <h3 class="card-title">Login as:</h3>
+        <div class=" d-flex flex-column flex-md-wrap align-content-center">
+            <a class="btn btn-primary my-1 flex-md-fill w-25 h-50" asp-page="./Farmer/Login">Farmer</a>
+            <a class="btn btn-primary my-1 flex-md-fill w-25 h-50" asp-page="./Employee/Login">Employee</a>
+        </div>
+</div>

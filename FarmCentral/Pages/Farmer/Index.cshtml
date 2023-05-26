@@ -1,0 +1,70 @@
+﻿@page
+@model FarmCentral.Pages.Farmer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Product List</h1>
+<h4>Farmer: @Model.Farmer.Name</h4>
+
+<p>
+    <a asp-page="Create" asp-route-farmerId="@Model.Farmer.FarmerId">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <form method="post">
+        <tr>
+            <th>
+                <label asp-for="@Model.StartDate" class="control-label"></label>
+                <input asp-for="@Model.StartDate" class="form-control" />
+            </th>
+            <th>
+                <label asp-for="@Model.EndDate" class="control-label"></label>
+                <input asp-for="@Model.EndDate" class="form-control" />
+            </th>
+            <th>
+                <label asp-for="@Model.FilterType" class="control-label"></label>
+                <select asp-for="@Model.FilterType" class="form-control" asp-items="ViewBag.TypeId"></select>
+            </th>
+            <th class="form-group">
+                <input type="hidden" name="farmerId" value="@Model.Farmer.FarmerId" />
+                <input type="submit" value="Filter" class="btn btn-primary" />
+            </th>
+        </tr>
+        </form>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Products[0].Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Products) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+                
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ProductId" asp-route-farmerId="@Model.Farmer.FarmerId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProductId" asp-route-farmerId="@Model.Farmer.FarmerId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProductId" asp-route-farmerId="@Model.Farmer.FarmerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

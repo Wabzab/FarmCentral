@@ -1,0 +1,44 @@
+﻿@page
+@model FarmCentral.Pages.Farmer.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Add Product</h1>
+
+<h4>For: @Model.Farmer.Name</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product.Name" class="control-label"></label>
+                <input asp-for="Product.Name" class="form-control" />
+                <span asp-validation-for="Product.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Type" class="control-label"></label>
+                <select asp-for="Product.TypeId" class ="form-control" asp-items="ViewBag.TypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Product.Date" class="control-label"></label>
+                <input asp-for="Product.Date" class="form-control" />
+                <span asp-validation-for="Product.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="Product.FarmerId" value="@Model.Farmer.FarmerId" type="hidden" class="form-control"/>
+                <input type="submit" value="Create" class="btn btn-primary my-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index" asp-route-farmerId="@Model.Farmer.FarmerId">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

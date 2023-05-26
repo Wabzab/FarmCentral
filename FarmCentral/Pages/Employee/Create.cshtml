@@ -1,0 +1,42 @@
+﻿@page
+@model FarmCentral.Pages.Employee.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Farmer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Farmer.Name" class="control-label"></label>
+                <input asp-for="Farmer.Name" class="form-control" />
+                <span asp-validation-for="Farmer.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Farmer.Password" class="control-label"></label>
+                <input asp-for="Farmer.Password" class="form-control" />
+                <span asp-validation-for="Farmer.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="text-danger">@Model.errorString</label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary my-2" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
