@@ -5,8 +5,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+// Can't use User Secrets :(
 builder.Services.AddDbContext<FarmCentralDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FarmCentralDatabase")));
+    options.UseSqlServer(
+        "Server=tcp:farmcentral.database.windows.net,1433;Initial Catalog=FarmCentralDB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";"
+        ));
 
 var app = builder.Build();
 
