@@ -8,7 +8,7 @@ builder.Services.AddRazorPages();
 // Can't use User Secrets :(
 builder.Services.AddDbContext<FarmCentralDbContext>(options =>
     options.UseSqlServer(
-        "Server=tcp:farmcentral.database.windows.net,1433;Initial Catalog=FarmCentralDB;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;Authentication=\"Active Directory Default\";"
+        "Server = tcp:farmcentral.database.windows.net, 1433; Initial Catalog = FarmCentralDB; Persist Security Info=False; User ID = farmer-admin; Password = Farming1!; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
         ));
 
 var app = builder.Build();
