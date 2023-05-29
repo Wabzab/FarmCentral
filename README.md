@@ -14,6 +14,7 @@ Prototype website for Farm Central. Allows farmers to log in to view and manage 
 
 ## Debugging
 In case of invalid certificate:
+
 Close Visual Studio and reopen it. 
 
 This issue seems to occur when initially generating the localhost certificate in order to access the website.
@@ -32,12 +33,19 @@ Employees are also able to view a filterable list of recorded products for each 
 
 ## Sample accounts
 - Employees
+
 Name: Max
+
 Password: admin
 
+
 - Farmers
+
 Name: John
+
 Password: password
 
+
 Name: Doe
+
 Password: password
